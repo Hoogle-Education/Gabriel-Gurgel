@@ -1,0 +1,6 @@
+Rio de Janeiro:
+Sensor A, 10 leituras: 30 41 60
+65 40 20 10 15
+3 2
+Sensor B, 12 leituras: 20 22 50 51 50 25 10 15 11 5 2 1
+Sensor C, 5 leituras: 5 2 3 4 5
