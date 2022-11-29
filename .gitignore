@@ -1,3 +1,4 @@
 drafts/**
 .vscode/**
 **/test.exe
+samples/linked_list/linked_list.h.gch
