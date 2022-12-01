@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+const int HASHSIZE = 10;
+
 typedef struct info
 {
-  int x, y;
+  char* name;
+  char* defn;
 } Info;
 
 typedef struct List
@@ -12,11 +15,10 @@ typedef struct List
   struct List* prox;
 } List;
 
-List* append(List* list, int value) {
+List* append(List* list, char* name, char* defn) {
   List* aux;
-  aux = (List*)malloc(sizeof(List));
-  aux->info.x = value;
-  aux->info.y = value;
+  aux->info.name = name;
+  aux->info.defn = defn;
   aux->prox = list;
   return aux;
 }
@@ -25,7 +27,15 @@ void printList(List* head) {
   List* aux = head;
 
   while(aux != NULL) {
-    printf("(%d , %d)\n", aux->info.x, aux->info.y);
+    printf("(%s , %s) -> ", aux->info.name, aux->info.defn);
     aux = aux->prox;
   }
+}
+
+unsigned int hash(char *s) {
+  unsigned int hashval;
+  for(hashval = 0; *s; s++) {
+    hashval = *s + 31 * hashval;
+  }
+  return hashval % HASHSIZE;
 }
